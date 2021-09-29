@@ -42,12 +42,15 @@ CC = arm-none-eabi-gcc
 LD = arm-none-eabi-ld
 TARGET = demo
 LDFLAGS = -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
-CFLAGS = -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -Wall
+CFLAGS = -mcpu=$(CPU) -m$(ARCH) --specs=$(SPECS) -Wall 
 
 OBJS = $(SRCS:.c=.o)
 
 %.o : %.c
 	$(CC) -c $< $(CFLAGS) -o $@
+
+%.i : %.c
+	$(CC) -E $< $(CFLAGS) -o $@
 
 .PHONY: build
 build: all
