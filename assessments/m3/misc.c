@@ -21,13 +21,13 @@
 
 #define SOME_VALUE (6)
 
-int g5[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+int g5[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};//data data
 
-int func(int * f1)
+int func(int * f1)//code bss rw fun
 {
-  static int f2;
+  static int f2; // bdata rodata rw prog
   unsigned int f3 = 0;
-  volatile char * f4 = "Hello World!\n";
+  volatile char * f4 = "Hello World!\n";//data txt rw indef
 
   f2++;
   *(&g5[0] + f2) = f3;

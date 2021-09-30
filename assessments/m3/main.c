@@ -23,17 +23,17 @@
 #include <stdlib.h>
 #include "misc.h"
 
-static int g1;
+static int g1; // data , bss rw /program
 const int g2 = 45;
 char g3 = 12;
-char g4 = 0;
-extern char g5[N];
+char g4 = 0; //data bss rw prog
+extern char g5[N]; //data data rw indef
 
 int main()
 {
   register int l1;
-  int * l2;
-  volatile int l3 = 12;
+  int * l2; //data data rw blovk//heap
+  volatile int l3 = 12; //reg dtat rw life
   
   l2 = (int *) malloc( N * g2 * sizeof(char) );
 
@@ -44,7 +44,7 @@ int main()
 
   for( l1 = 0; l1 < g2; l3++)
   {
-    g1 = func(l2);
+    g1 = func(l2);//code text none prog
   }
 
   return 0;
