@@ -28,7 +28,7 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+void mainn() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -50,27 +50,28 @@ void main() {
 
 void print_statistics(unsigned char *test,unsigned int length){
   unsigned char mxElement = find_maximum(test, SIZE);
-  printf("Maximum of all n-elements is %d\n", mxElement);
+  PRINTF("Maximum of all n-elements is %d\n", mxElement);
  
   unsigned char mnElement = find_minimum(test, SIZE);
-  printf("Minimum of all n-elements is %d\n", mnElement); 
+  PRINTF("Minimum of all n-elements is %d\n", mnElement); 
 
   unsigned char meanElement = find_mean(test, SIZE);
-  printf("Mean of all n-elements is %d\n", meanElement); 
+  PRINTF("Mean of all n-elements is %d\n", meanElement); 
 
   unsigned char medianElement = find_median(test, SIZE);
-  printf("Median of all n-elements is %d\n", medianElement); 
+  PRINTF("Median of all n-elements is %d\n", medianElement); 
 }
 
 
 void print_array(unsigned char *test, unsigned int length){
-  printf("Elements in the sorted order is :-  \n");
+  #ifdef VERBOSE
+  PRINTF("Elements in the sorted order is :-  \n");
   for(unsigned int i=0; i< length ; i++){
-      printf("%d ",*(test+i));
+      PRINTF("%d ",*(test+i));
   }
-  printf("\n");
+  PRINTF("\n");
+  #endif
 }
-
 
 unsigned char find_median(unsigned char *test, unsigned int length){
   sort_array(test, SIZE);

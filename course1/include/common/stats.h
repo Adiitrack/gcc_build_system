@@ -22,6 +22,7 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
+#define PRINTF(...) printf(__VA_ARGS__)
 
 /**
  * @brief Prints statistics of array

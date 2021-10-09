@@ -18,24 +18,27 @@
 #------------------------------------------------------------------------------
 
 # List of all common source files used for program build.
-SOURCES_COM = ./main.c   \
-              ./memory.c
+SOURCES_COM = ./src/main.c   \
+              ./src/memory.c \
+              ./src/data.c   \
+              ./src/course1.c \
+              ./src/stats.c
 
 # List of all platform related source files used for program build.
-SOURCES_PLAT = ./startup_msp432p401r_gcc.c    \
-               ./system_msp432p401r.c         \
-               ./interrupts_msp432p401r_gcc.c
+SOURCES_PLAT = ./src/startup_msp432p401r_gcc.c    \
+               ./src/system_msp432p401r.c         \
+               ./src/interrupts_msp432p401r_gcc.c
 
 # List of all include paths used for program build.
 
 # Common includes.
-INCLUDES_COM = -I../include/common
+INCLUDES_COM = -I./include/common
 
 # Architecture specific includes.
-INCLUDES_ARCH = -I../include/CMSIS
+INCLUDES_ARCH = -I./include/CMSIS
 
 # Platform specific includes.              
-INCLUDES_PLAT = -I../include/msp432 
+INCLUDES_PLAT = -I./include/msp432 
 
 # Linux commands information:
 # "."  : Current directory.

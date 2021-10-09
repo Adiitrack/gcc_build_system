@@ -143,7 +143,6 @@ int8_t test_memmove2() {
   for( i = 0; i < MEM_SET_SIZE_B; i++) {
     set[i] = i;
   }
-
   print_array(set, MEM_SET_SIZE_B);
   my_memmove(ptra, ptrb, TEST_MEMMOVE_LENGTH);
   print_array(set, MEM_SET_SIZE_B);
@@ -321,7 +320,7 @@ int8_t test_reverse()
   return ret;
 }
 
-void course1(void) 
+void course1() 
 {
   uint8_t i;
   int8_t failed = 0;
@@ -339,6 +338,7 @@ void course1(void)
   for ( i = 0; i < TESTCOUNT; i++) 
   {
     failed += results[i];
+    // printf("%d ",results[i]);
   }
 
   PRINTF("--------------------------------\n");
